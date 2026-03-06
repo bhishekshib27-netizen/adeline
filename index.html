@@ -1,1 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adeline Juhel | Portfolio</title>
+  <meta name="description" content="Simple portfolio for Adeline Juhel" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <style>
+    :root{
+      --bg1:#fff0f6;
+      --bg2:#ffd9e8;
+      --card:rgba(255,255,255,0.72);
+      --text:#6b2d4f;
+      --muted:#9a5f7d;
+      --line:rgba(255,255,255,0.55);
+      --accent:#ff7eb3;
+      --accent2:#ffb6cf;
+      --shadow:0 20px 60px rgba(255, 126, 179, 0.20);
+      --radius:24px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"Inter", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, #ffeaf3 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #ffd6e7 0%, transparent 30%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    .hearts{
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .heart{
+      position:absolute;
+      bottom:-60px;
+      color:rgba(255,126,179,0.45);
+      animation:floatUp linear infinite;
+      font-size:22px;
+      filter:blur(.2px);
+    }
+
+    .heart:nth-child(1){ left:5%; animation-duration:12s; animation-delay:0s; font-size:20px; }
+    .heart:nth-child(2){ left:12%; animation-duration:15s; animation-delay:2s; font-size:30px; }
+    .heart:nth-child(3){ left:20%; animation-duration:11s; animation-delay:4s; font-size:18px; }
+    .heart:nth-child(4){ left:30%; animation-duration:16s; animation-delay:1s; font-size:28px; }
+    .heart:nth-child(5){ left:40%; animation-duration:13s; animation-delay:3s; font-size:22px; }
+    .heart:nth-child(6){ left:52%; animation-duration:17s; animation-delay:5s; font-size:34px; }
+    .heart:nth-child(7){ left:63%; animation-duration:12s; animation-delay:2s; font-size:21px; }
+    .heart:nth-child(8){ left:73%; animation-duration:14s; animation-delay:6s; font-size:26px; }
+    .heart:nth-child(9){ left:84%; animation-duration:18s; animation-delay:1s; font-size:32px; }
+    .heart:nth-child(10){ left:93%; animation-duration:13s; animation-delay:4s; font-size:20px; }
+
+    @keyframes floatUp{
+      0%{
+        transform:translateY(0) translateX(0) rotate(0deg);
+        opacity:0;
+      }
+      10%{
+        opacity:1;
+      }
+      100%{
+        transform:translateY(-115vh) translateX(25px) rotate(12deg);
+        opacity:0;
+      }
+    }
+
+    .wrap{
+      position:relative;
+      z-index:1;
+      width:min(100%, 1100px);
+      margin:0 auto;
+      padding:32px 20px 60px;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+    }
+
+    .card{
+      width:min(100%, 820px);
+      background:var(--card);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:42px 30px;
+      text-align:center;
+    }
+
+    .avatar{
+      width:120px;
+      height:120px;
+      margin:0 auto 18px;
+      border-radius:50%;
+      background:linear-gradient(135deg, #ffc1d9, #ffe4ef);
+      display:grid;
+      place-items:center;
+      font-size:44px;
+      box-shadow:0 10px 30px rgba(255,126,179,0.18);
+      border:3px solid rgba(255,255,255,0.75);
+    }
+
+    .tag{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.65);
+      color:var(--muted);
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:18px;
+    }
+
+    h1,h2{
+      font-family:"Playfair Display", serif;
+    }
+
+    h1{
+      font-size:clamp(2.3rem, 5vw, 4.4rem);
+      line-height:1.05;
+      margin-bottom:10px;
+      color:#7a3359;
+    }
+
+    .subtitle{
+      font-size:1.08rem;
+      color:var(--muted);
+      max-width:580px;
+      margin:0 auto 28px;
+      line-height:1.7;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      padding:12px 20px;
+      border-radius:999px;
+      font-weight:600;
+      transition:.25s ease;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--accent), #ff9dc4);
+      color:white;
+      box-shadow:0 10px 24px rgba(255,126,179,0.28);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,0.75);
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.75);
+    }
+
+    .btn-secondary:hover{
+      transform:translateY(-2px);
+    }
+
+    section{
+      padding:30px 0;
+    }
+
+    .section-card{
+      background:rgba(255,255,255,0.62);
+      border:1px solid rgba(255,255,255,0.7);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 18px 40px rgba(255,126,179,0.12);
+    }
+
+    .section-title{
+      font-size:2rem;
+      margin-bottom:12px;
+      text-align:center;
+      color:#7a3359;
+    }
+
+    .section-text{
+      text-align:center;
+      color:var(--muted);
+      max-width:700px;
+      margin:0 auto 24px;
+      line-height:1.7;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .mini-card{
+      background:rgba(255,255,255,0.75);
+      border:1px solid rgba(255,255,255,0.85);
+      border-radius:20px;
+      padding:22px;
+      text-align:center;
+      transition:.25s ease;
+    }
+
+    .mini-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 14px 30px rgba(255,126,179,0.14);
+    }
+
+    .mini-icon{
+      font-size:28px;
+      margin-bottom:12px;
+    }
+
+    .mini-card h3{
+      font-size:1rem;
+      margin-bottom:8px;
+      color:#7a3359;
+    }
+
+    .mini-card p{
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.6;
+    }
+
+    .love-note{
+      text-align:center;
+      padding:34px 16px 12px;
+      font-size:1.05rem;
+      color:#a04d75;
+      font-weight:600;
+    }
+
+    .love-note span{
+      display:inline-block;
+      margin-left:6px;
+      animation:pulse 1.8s infinite;
+    }
+
+    @keyframes pulse{
+      0%,100%{ transform:scale(1); }
+      50%{ transform:scale(1.15); }
+    }
+
+    footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:.92rem;
+      padding:10px 0 30px;
+    }
+
+    @media (max-width: 860px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .card{
+        padding:34px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts" aria-hidden="true">
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+  </div>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="card">
+        <div class="avatar">🎀</div>
+        <div class="tag">Simple Portfolio Demo</div>
+        <h1>Adeline Juhel</h1>
+        <p class="subtitle">
+          A soft and elegant portfolio concept made to showcase personality,
+          education, interests, and a beautiful online presence.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#about" class="btn btn-primary">Explore</a>
+          <a href="#contact" class="btn btn-secondary">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-card">
+        <h2 class="section-title">About Her</h2>
+        <p class="section-text">
+          Adeline Juhel is a student at <strong>Vatel University</strong>, with a warm,
+          graceful, and elegant presence. This portfolio is a simple preview to show
+          how her personal site could look online.
+        </p>
+
+        <div class="grid">
+          <div class="mini-card">
+            <div class="mini-icon">🎓</div>
+            <h3>Education</h3>
+            <p>Currently studying at Vatel University.</p>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-icon">💖</div>
+            <h3>Personality</h3>
+            <p>Soft, charming, and effortlessly elegant.</p>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-icon">✨</div>
+            <h3>Style</h3>
+            <p>A gentle baby pink theme with floating hearts and a dreamy atmosphere.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-card">
+        <h2 class="section-title">A Sweet Little Preview</h2>
+        <p class="section-text">
+          This is just a simple concept, but it can be turned into a real elegant portfolio
+          with photos, hobbies, social links, gallery sections, and a more refined design.
+        </p>
+      </div>
+    </section>
+
+    <div class="love-note">
+      Bhishek loves you! <span>💗</span>
+    </div>
+
+    <footer>
+      Made with love for Adeline Juhel
+    </footer>
+  </div>
+
+</body>
+</html>
