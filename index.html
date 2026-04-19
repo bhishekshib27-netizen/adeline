@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adeline Juhel | Portfolio</title>
-  <meta name="description" content="Simple portfolio for Adeline Juhel" />
+  <title>FinRisk pour Chou 🥬</title>
+  <meta name="description" content="Une page simple et mignonne pour expliquer FinRisk." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -96,7 +96,7 @@
     }
 
     .hero{
-      min-height:100vh;
+      min-height:70vh;
       display:grid;
       place-items:center;
     }
@@ -137,62 +137,30 @@
       margin-bottom:18px;
     }
 
-    h1,h2{
+    h1,h2,h3{
       font-family:"Playfair Display", serif;
     }
 
     h1{
-      font-size:clamp(2.3rem, 5vw, 4.4rem);
+      font-size:clamp(2.3rem, 5vw, 4.2rem);
       line-height:1.05;
       margin-bottom:10px;
+      color:#7a3359;
+    }
+
+    h2{
+      font-size:2rem;
+      margin-bottom:12px;
+      text-align:center;
       color:#7a3359;
     }
 
     .subtitle{
       font-size:1.08rem;
       color:var(--muted);
-      max-width:580px;
-      margin:0 auto 28px;
+      max-width:620px;
+      margin:0 auto 10px;
       line-height:1.7;
-    }
-
-    .hero-buttons{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      padding:12px 20px;
-      border-radius:999px;
-      font-weight:600;
-      transition:.25s ease;
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg, var(--accent), #ff9dc4);
-      color:white;
-      box-shadow:0 10px 24px rgba(255,126,179,0.28);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-2px);
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,0.75);
-      color:var(--text);
-      border:1px solid rgba(255,255,255,0.75);
-    }
-
-    .btn-secondary:hover{
-      transform:translateY(-2px);
     }
 
     section{
@@ -207,17 +175,10 @@
       box-shadow:0 18px 40px rgba(255,126,179,0.12);
     }
 
-    .section-title{
-      font-size:2rem;
-      margin-bottom:12px;
-      text-align:center;
-      color:#7a3359;
-    }
-
     .section-text{
       text-align:center;
       color:var(--muted);
-      max-width:700px;
+      max-width:720px;
       margin:0 auto 24px;
       line-height:1.7;
     }
@@ -225,6 +186,13 @@
     .grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
       gap:18px;
       margin-top:20px;
     }
@@ -286,13 +254,19 @@
       padding:10px 0 30px;
     }
 
-    @media (max-width: 860px){
-      .grid{
+    @media (max-width: 900px){
+      .grid,
+      .grid-4{
         grid-template-columns:1fr;
       }
 
       .card{
         padding:34px 22px;
+      }
+
+      .hero{
+        min-height:auto;
+        padding-top:40px;
       }
     }
   </style>
@@ -315,68 +289,138 @@
   <div class="wrap">
     <section class="hero">
       <div class="card">
-        <div class="avatar">🎀</div>
-        <div class="tag">Simple Portfolio Demo</div>
-        <h1>Adeline Juhel</h1>
+        <div class="avatar">💖</div>
+        <div class="tag">Une page juste pour toi</div>
+        <h1>FinRisk pour Chou</h1>
         <p class="subtitle">
-          A soft and elegant portfolio concept made to showcase personality,
-          education, interests, and a beautiful online presence.
+          Une version simple, douce et mignonne pour t’expliquer ce que je fais vraiment 😌
         </p>
-
-        <div class="hero-buttons">
-          <a href="#about" class="btn btn-primary">Explore</a>
-          <a href="#contact" class="btn btn-secondary">Contact</a>
-        </div>
       </div>
     </section>
 
-    <section id="about">
+    <section id="scenario">
       <div class="section-card">
-        <h2 class="section-title">About Her</h2>
+        <h2>Imagine 👀</h2>
         <p class="section-text">
-          Adeline Juhel is a student at <strong>Vatel University</strong>, with a warm,
-          graceful, and elegant presence. This portfolio is a simple preview to show
-          how her personal site could look online.
+          Quelqu’un veut envoyer beaucoup d’argent… mais il y a des trucs un peu bizarres 🤨
+          <br><br>
+          Et là, la vraie question, c’est :
+          <strong>tu fais confiance… ou tu bloques ?</strong>
         </p>
 
         <div class="grid">
           <div class="mini-card">
-            <div class="mini-icon">🎓</div>
-            <h3>Education</h3>
-            <p>Currently studying at Vatel University.</p>
+            <div class="mini-icon">💰</div>
+            <h3>La situation</h3>
+            <p>
+              Une grosse somme d’argent veut partir d’un endroit à un autre.
+            </p>
           </div>
 
           <div class="mini-card">
-            <div class="mini-icon">💖</div>
-            <h3>Personality</h3>
-            <p>Soft, charming, and effortlessly elegant.</p>
+            <div class="mini-icon">🤨</div>
+            <h3>Le doute</h3>
+            <p>
+              Mais certains détails paraissent étranges, incomplets ou suspects.
+            </p>
           </div>
 
           <div class="mini-card">
-            <div class="mini-icon">✨</div>
-            <h3>Style</h3>
-            <p>A gentle baby pink theme with floating hearts and a dreamy atmosphere.</p>
+            <div class="mini-icon">🤔</div>
+            <h3>La décision</h3>
+            <p>
+              C’est là qu’il faut réfléchir avant de dire oui ou non.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="finrisk">
       <div class="section-card">
-        <h2 class="section-title">A Sweet Little Preview</h2>
+        <h2>Ce que je fais 🕵️‍♂️</h2>
         <p class="section-text">
-          This is just a simple concept, but it can be turned into a real elegant portfolio
-          with photos, hobbies, social links, gallery sections, and a more refined design.
+          FinRisk, c’est exactement ça —
+          sauf que je crée ces situations pour des gens qui travaillent dans la finance,
+          pour les aider à prendre les bonnes décisions.
+          <br><br>
+          En gros, je crée des petits <strong>jeux sérieux</strong> où il faut réfléchir
+          comme un détective 😏
         </p>
+
+        <div class="grid">
+          <div class="mini-card">
+            <div class="mini-icon">🎯</div>
+            <h3>Le but</h3>
+            <p>
+              Aider les gens à repérer ce qui semble normal… ou ce qui ne l’est pas.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-icon">🧠</div>
+            <h3>La réflexion</h3>
+            <p>
+              Ce n’est pas juste apprendre des règles, c’est apprendre à bien juger.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-icon">✨</div>
+            <h3>FinRisk</h3>
+            <p>
+              Une façon plus simple et plus pratique de comprendre le risque.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <div class="love-note">
-      Bhishek loves you! <span>💗</span>
-    </div>
+    <section id="definitions">
+      <div class="section-card">
+        <h2>Les mots compliqués, version simple 😌</h2>
+        <p class="section-text">
+          Parce que oui, tous ces mots font un peu peur au début… mais en vrai, c’est beaucoup plus simple comme ça :
+        </p>
+
+        <div class="grid-4">
+          <div class="mini-card">
+            <div class="mini-icon">🧼</div>
+            <h3>AML</h3>
+            <p>
+              Empêcher que de l’argent sale devienne “propre”.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-icon">🚫</div>
+            <h3>CFT</h3>
+            <p>
+              Empêcher que de l’argent serve à financer des choses dangereuses.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-icon">🌍</div>
+            <h3>FATF</h3>
+            <p>
+              Le groupe international qui fixe les règles pour éviter ces problèmes.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-icon">⚖️</div>
+            <h3>Compliance</h3>
+            <p>
+              Suivre les règles pour éviter les problèmes et protéger le système.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <footer>
-      Made with love for Adeline Juhel
+      FinRisk pour Chou — made by Bhishek avec beaucoup trop d’amour
     </footer>
   </div>
 
