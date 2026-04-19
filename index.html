@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    
     :root{
       --bg1:#fff0f6;
       --bg2:#ffd9e8;
@@ -269,8 +270,80 @@
         padding-top:40px;
       }
     }
+    .choice-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:18px;
+  margin-top:20px;
+}
+
+.choice-btn{
+  border:none;
+  border-radius:20px;
+  padding:18px 16px;
+  background:rgba(255,255,255,0.75);
+  border:1px solid rgba(255,255,255,0.85);
+  color:var(--text);
+  font-family:"Inter", sans-serif;
+  font-size:.98rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:.25s ease;
+  box-shadow:0 10px 24px rgba(255,126,179,0.10);
+}
+
+.choice-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(255,126,179,0.16);
+}
+
+.answer-box{
+  display:none;
+  margin-top:24px;
+  background:rgba(255,255,255,0.78);
+  border:1px solid rgba(255,255,255,0.85);
+  border-radius:20px;
+  padding:22px;
+  text-align:center;
+}
+
+.answer-box h3{
+  margin-bottom:8px;
+  color:#7a3359;
+  font-size:1.15rem;
+}
+
+.answer-box p{
+  color:var(--muted);
+  line-height:1.7;
+}
+    
   </style>
 </head>
+  <script>
+function showAnswer(choice){
+  const box = document.getElementById("answer-box");
+  const title = document.getElementById("answer-title");
+  const text = document.getElementById("answer-text");
+
+  if(choice === "trust"){
+    title.textContent = "Pas tout de suite 😌";
+    text.textContent = "Faire confiance directement peut être risqué quand certaines informations ne sont pas claires.";
+  }
+
+  if(choice === "check"){
+    title.textContent = "Très bon réflexe 🕵️‍♂️";
+    text.textContent = "Exactement. Il faut comprendre et vérifier avant de décider.";
+  }
+
+  if(choice === "block"){
+    title.textContent = "Peut-être… mais pas toujours 🚫";
+    text.textContent = "Bloquer peut être utile, mais il faut d’abord analyser la situation.";
+  }
+
+  box.style.display = "block";
+}
+</script>
 <body>
 
   <div class="hearts" aria-hidden="true">
@@ -418,7 +491,32 @@
         </div>
       </div>
     </section>
+<section id="test-toi">
+  <div class="section-card">
+    <h2>Voyons si tu serais forte en FinRisk 😏</h2>
+    <p class="section-text">
+      Imagine : une personne veut envoyer une grosse somme d’argent depuis un pays un peu risqué,
+      mais certaines informations ne sont pas très claires…
+      <br><br>
+      Toi, tu ferais quoi ?
+    </p>
 
+    <div class="choice-grid">
+      <button class="choice-btn" onclick="showAnswer('trust')">💖 Je fais confiance</button>
+      <button class="choice-btn" onclick="showAnswer('check')">🕵️ Je vérifie plus</button>
+      <button class="choice-btn" onclick="showAnswer('block')">🚫 Je bloque</button>
+    </div>
+
+    <div id="answer-box" class="answer-box">
+      <h3 id="answer-title"></h3>
+      <p id="answer-text"></p>
+    </div>
+  </div>
+</section>
+    
+    <div class="love-note">
+  Si tu comprends ça… tu comprends un peu mon monde aussi <span>💗</span>
+</div>
     <footer>
       FinRisk pour Chou — made by Bhishek avec beaucoup trop d’amour
     </footer>
