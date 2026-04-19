@@ -317,7 +317,94 @@
   color:var(--muted);
   line-height:1.7;
 }
-    
+ .lock-screen{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at top left, rgba(255,234,243,0.96) 0%, transparent 35%),
+    radial-gradient(circle at bottom right, rgba(255,214,231,0.96) 0%, transparent 30%),
+    linear-gradient(135deg, rgba(255,240,246,0.97), rgba(255,217,232,0.97));
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+
+.lock-card{
+  width:min(100%, 460px);
+  background:rgba(255,255,255,0.82);
+  border:1px solid rgba(255,255,255,0.85);
+  border-radius:24px;
+  box-shadow:0 20px 60px rgba(255,126,179,0.20);
+  padding:34px 26px;
+  text-align:center;
+}
+
+.lock-heart{
+  font-size:40px;
+  margin-bottom:12px;
+}
+
+.lock-card h2{
+  font-size:2rem;
+  margin-bottom:10px;
+  color:#7a3359;
+}
+
+.lock-text{
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:18px;
+}
+
+.lock-input{
+  width:100%;
+  padding:14px 16px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.9);
+  background:rgba(255,255,255,0.9);
+  color:var(--text);
+  font-family:"Inter", sans-serif;
+  font-size:1rem;
+  outline:none;
+  margin-bottom:14px;
+  text-align:center;
+  box-shadow:0 10px 24px rgba(255,126,179,0.08);
+}
+
+.lock-input:focus{
+  border-color:rgba(255,126,179,0.35);
+  box-shadow:0 12px 28px rgba(255,126,179,0.14);
+}
+
+.lock-button{
+  border:none;
+  border-radius:999px;
+  padding:12px 22px;
+  background:linear-gradient(135deg, var(--accent), #ff9dc4);
+  color:white;
+  font-family:"Inter", sans-serif;
+  font-size:0.98rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:.25s ease;
+  box-shadow:0 10px 24px rgba(255,126,179,0.24);
+}
+
+.lock-button:hover{
+  transform:translateY(-2px);
+}
+
+.lock-message{
+  min-height:22px;
+  margin-top:14px;
+  color:#a04d75;
+  font-size:.95rem;
+  font-weight:600;
+}   
   </style>
 </head>
   <script>
@@ -345,6 +432,28 @@ function showAnswer(choice){
 }
 </script>
 <body>
+
+    <div id="lock-screen" class="lock-screen">
+    <div class="lock-card">
+      <div class="lock-heart">💖</div>
+      <h2>Pour mon bébé seulement</h2>
+      <p class="lock-text">
+        Entre ton nom pour ouvrir cette page 👀
+      </p>
+
+      <input
+        id="name-input"
+        class="lock-input"
+        type="text"
+        placeholder="Écris ton nom ici"
+        autocomplete="off"
+      />
+
+      <button class="lock-button" onclick="unlockPage()">Ouvrir</button>
+
+      <p id="lock-message" class="lock-message"></p>
+    </div>
+  </div>
 
   <div class="hearts" aria-hidden="true">
     <div class="heart">♥</div>
@@ -521,6 +630,39 @@ function showAnswer(choice){
       FinRisk pour Chou — made by Bhishek avec beaucoup trop d’amour
     </footer>
   </div>
+<script>
+function normalizeName(value){
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
 
+function unlockPage(){
+  const input = document.getElementById("name-input");
+  const message = document.getElementById("lock-message");
+  const lockScreen = document.getElementById("lock-screen");
+
+  const enteredName = normalizeName(input.value);
+  const expectedName = normalizeName("Adeline Juhel");
+
+  if(enteredName === expectedName){
+    lockScreen.style.display = "none";
+  } else {
+    message.textContent = "Hmm… essaie encore mon cœur 💗";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("name-input");
+
+  input.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+      unlockPage();
+    }
+  });
+});
+</script>
+  
 </body>
 </html>
